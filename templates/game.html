@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Поэзия или компьютер? {% endblock %}
+
+{% block content %}
+
+    <style>
+    h5 {text-align: center}
+    </style>
+
+    <form action="/process" method = 'GET'>
+    <fieldset>
+    <legend><b>{{ string }}</b></legend>
+
+        Эта строчка реальная или придуманная компьютером?<br>
+
+    {%if variant == 'real'%}
+    <input type="radio" name="value" value="true"> Реальная<br>
+    <input type="radio" name="value" value="false"> Придуманная компьютером<br><br>
+
+    {%else%}
+    <input type="radio" name="value" value="false"> Реальная<br>
+    <input type="radio" name="value" value="true"> Придуманная компьютером<br><br>
+
+    {%endif%}
+
+    </fieldset>
+
+    <p><input type="submit" class="btn btn-primary" value="Подтвердить"></p>
+
+    </form>
+
+<h5>Статистика правильных ответов</h5>
+    <img src="static\figure.png">
+
+
+{% endblock %}

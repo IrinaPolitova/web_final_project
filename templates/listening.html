@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} Аудирование {% endblock %}
+
+{% block content %}
+
+<body>
+    <h5>{{ title }}, {{ author }}</h5>
+    <p>
+
+    {%for i in poem%}
+        {{i}}<br>
+    {%endfor%}
+    </p>
+    <audio src= {{audio}} controls></audio><br><br>
+
+    <form action='/listening'>
+    <fieldset>
+    <legend><b>Введите пропущенное слово:</b></legend>
+        <input type="text" required pattern={{j}}><br><br>
+    </fieldset>
+    <p><input type="submit" class="btn btn-primary" value="Подтвердить"></p>
+    </form>
+    <button type="button" class="btn btn-primary" onclick="window.location.href = '/listening';">Другое стихотворение</button><br><br>
+
+    <p>Если вы видите "Введите данные в указанном формате", это означает, что ваш ответ неправильный.</p>
+    <p>Просто введите другой ответ, когда он будет правильный, сайт примет его и выдаст новое стихотворение.</p>
+    <p>Удачи! :)</p>
+
+</body>
+
+{% endblock %}
